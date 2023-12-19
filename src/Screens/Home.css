@@ -1,0 +1,73 @@
+.HomePage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    color: white;
+  }
+.homepage-left{
+    width: 50vw;
+    background-color: #2b2b2b;
+}
+
+.homepage-right{
+    width: 50vw;
+    background-color: #82817f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HomePage-header {
+font-family: 'Inter', sans-serif;
+font-size: 2.5vw;
+display: flex;
+align-items: center;
+}
+
+.dot {
+color: red;
+}
+  
+.HomePage-content {
+flex: 1;
+font-family: "poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 1.25vw;
+width: 38vw;
+}
+.left{
+    width: 40vw;
+    padding-top: 2.5vw;
+    padding-left: 5vw;
+    padding-bottom: 5vw;
+    padding-right: 5vw;
+}
+  
+.right-container{
+    height: 30vh;
+    width: 30vw;
+    text-align: center;
+    
+}
+.button-container{
+    width: 24vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.authBtn{
+    border-radius: 15px;
+    background: #181818;    
+    width: 11vw;
+    height: 7.5vh;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6vw;
+    border: none;
+}
+
+.authBtn:hover{
+    background-color: white;
+    color: black;
+}
