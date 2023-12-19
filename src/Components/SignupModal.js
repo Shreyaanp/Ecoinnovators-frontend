@@ -3,8 +3,9 @@ import './SignupModal.css'; // Make sure to create a SocialSignupModal.css file 
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
-import { auth, googleProvider } from '../firebase';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth, googleProvider, database} from '../firebase';
+import { signInWithPopup } from 'firebase/auth';
+import { ref, set } from 'firebase/database';
 
 
 const SignupModal = ({ isOpen, onClose }) => {
@@ -13,23 +14,30 @@ const SignupModal = ({ isOpen, onClose }) => {
   const handleGoogleSignup = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
-      // ...
-      onClose(); // Close the modal upon successful login
-    } catch (error) {
+
+      // Get user details
+      const userProfile = {
+          firstName: user.displayName.split(' ')[0], // Assuming the first name is the first part
+          lastName: user.displayName.split(' ')[1] || '', // Assuming the last name is the second part
+          email: user.email
+      };
+
+      // Get a reference to the database
+      const userRef = ref(database, 'users/' + user.uid);
+
+      // Write the user data to the database
+      set(userRef, userProfile)
+          .then(() => {
+              console.log('User data stored successfully!');
+              onClose(); // Close the modal upon successful data storage
+          })
+          .catch((error) => {
+              console.error('Storing user data failed: ', error);
+          });
+
+  } catch (error) {
       console.error(error);
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
     }
   };
 
