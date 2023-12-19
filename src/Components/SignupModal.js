@@ -6,10 +6,13 @@ import { FaApple } from "react-icons/fa";
 import { auth, googleProvider, database} from '../firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
-
+import { useNavigate } from 'react-router-dom';
 
 const SignupModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
+  
 
   const handleGoogleSignup = async () => {
     try {
@@ -30,7 +33,8 @@ const SignupModal = ({ isOpen, onClose }) => {
       set(userRef, userProfile)
           .then(() => {
               console.log('User data stored successfully!');
-              onClose(); // Close the modal upon successful data storage
+              onClose();
+              navigate('/dashboard'); // Close the modal upon successful data storage
           })
           .catch((error) => {
               console.error('Storing user data failed: ', error);
