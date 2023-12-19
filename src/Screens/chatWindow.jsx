@@ -57,6 +57,13 @@ function App() {
 
                 <div className="right-panel">
                     <div className="chat-window">
+                        <div className='headerfolder'>
+                            <select className='select' onChange={(e) => setData(e.target.value)}>
+                                <option value="prod">Prod</option>
+                                <option value="dev">Dev</option>
+                            </select>
+
+                        </div>
                         {messages.map((msg, index) => (
                             <p key={index} className={`${msg.sender === 'user' ? 'user-message' : 'bot-message'} message`}>
                                 {msg.text}
