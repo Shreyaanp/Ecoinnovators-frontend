@@ -1,9 +1,17 @@
 // HomePage.js
-import React from 'react';
+import React,{useState}from 'react';
 import './Home.css'; // Make sure to create a HomePage.css file for styling
 import { MdArrowDropDown } from "react-icons/md";
+import SignupModal from '../Components/SignupModal';
+import LoginModal from '../Components/LoginModal';
+
 
 const HomePage = () => {
+
+    const [isSignupModalOpen, setSignupModalOpen] = useState(false);
+    const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+
+
   return (
     <div className="HomePage">
         <div className='homepage-left'>
@@ -31,8 +39,10 @@ const HomePage = () => {
                 <h1>GET STARTED</h1>
                 <div style={{display:'flex', justifyContent:"center"}}>
                 <div className='button-container'>
-                    <button className='authBtn'>Signup</button>
-                    <button className='authBtn'>Login</button>
+                    <button className='authBtn' onClick={() => setSignupModalOpen(true)}>Signup</button>
+                    <SignupModal isOpen={isSignupModalOpen} onClose={() => setSignupModalOpen(false)} />
+                    <button className='authBtn' onClick={() => setLoginModalOpen(true)}>Login</button>
+                    <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
                 </div>
                 </div>
                 <p><u>continue as a guest</u></p>
