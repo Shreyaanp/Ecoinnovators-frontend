@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { AiOutlineFileAdd } from "react-icons/ai";
+import { MdDataset } from "react-icons/md";
+
 import './chatWindow.css';
+import FileSelect from '../Components/FileSelect';
 
 // Point this URL to your FastAPI backend
 const backendUrl = 'http://localhost:8000';
 
-function App() {
+function ChatWindow() {
     const [userInput, setUserInput] = useState('');
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const messagesEndRef = useRef(null);
     const [data, setData] = useState('prod');
+    const [selectedFile, setSelectedFile] = useState(null);
+
 
     useEffect(() => {
         scrollToBottom();
@@ -43,27 +49,72 @@ function App() {
         setIsLoading(false);
     };
 
+    const handleFileUpload = async (event) => {
+        const selectedFile = event.target.files[0];
+        if (!selectedFile) return;
+
+        setSelectedFile({
+            name: selectedFile.name,
+            iconUrl: '/path-to-file-icon.png', // Replace with the actual file icon URL
+        });
+    };
+
+    const handleCancelFile = () => {
+        // Clear the selected file
+        setSelectedFile(null);
+    };
+    
+    const handleConfirmFile = () => {
+        // Handle the confirmation action here, e.g., send the file to the server
+        // ...
+    
+        // Clear the selected file after handling
+        setSelectedFile(null);
+    };
+
+    const handleFileDrop = (event) => {
+        event.preventDefault();
+        const selectedFile = event.dataTransfer.files[0];
+        if (selectedFile) {
+            // Handle the dropped file
+            handleFileUpload({ target: { files: [selectedFile] } });
+        }
+    };
+
+    const handleFileDragOver = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <div className="chatApp">
             {error && <p className="error">{error}</p>}
 
             <div className="content">
                 <div className="left-panel">
-                    <div className="visualization-window">
-                        <h2>Visualization</h2>
-                        <p>Visualization goes here...</p>
+                    <div className="view-dataset">
+                    <MdDataset className='dataset-icon' />
+                    <p>View all datasets</p>
                     </div>
+                    
+    {!selectedFile ? (
+        <div className="fileUpload-window" onDrop={handleFileDrop} onDragOver={handleFileDragOver}>
+        <div>
+            <label htmlFor="fileInput" className="file-upload-label">
+                <AiOutlineFileAdd className='fileupload-icon'/>
+            </label>
+            <p>add/drag one or more data files here to enable chatbot and visualization</p>
+            <input type="file" accept=".csv, .xlsx, .json" onChange={handleFileUpload} style={{ display: 'none' }} id="fileInput" />
+        </div>
+        </div>
+    ) : (
+        <FileSelect file={selectedFile} onCancel={handleCancelFile} onConfirm={handleConfirmFile} />
+    )}
+
+
                 </div>
 
                 <div className="right-panel">
                     <div className="chat-window">
-                        <div className='headerfolder'>
-                            <select className='select' onChange={(e) => setData(e.target.value)}>
-                                <option value="prod">Prod</option>
-                                <option value="dev">Dev</option>
-                            </select>
-
-                        </div>
                         {messages.map((msg, index) => (
                             <p key={index} className={`${msg.sender === 'user' ? 'user-message' : 'bot-message'} message`}>
                                 {msg.text}
@@ -94,4 +145,5 @@ function App() {
     );
 }
 
-export default App;
+
+export default ChatWindow;

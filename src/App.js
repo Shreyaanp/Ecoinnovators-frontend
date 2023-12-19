@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Screens/Home';
 import SignupModal from './Components/SignupModal';
 import LoginModal from './Components/LoginModal';
-import ChatWindow from './Screens/chatWindow';
+
+import Dashboard from './Screens/Dashboard';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
     <Route path="/" element={<HomePage />} />
     <Route path="/signup" element={<SignupModal isOpen={true} onClose={() => {}} />} />
     <Route path="/login" element={<LoginModal isOpen={true} onClose={() => {}} />} />
-    <Route path='/chatwindow' element={<ChatWindow />} />
+    <Route path='/dashboard' element={<Dashboard />} />
   </Routes>
 </Router>
 

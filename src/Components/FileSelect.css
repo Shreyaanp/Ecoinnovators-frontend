@@ -1,0 +1,54 @@
+.fileupload-icon{
+    font-size: 8vw;
+    color: white;;
+  }
+
+.fileBtn-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 15vw;
+}
+
+.selected-file{
+
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 29.925vw;
+  height: 25vh;
+  padding:3vw;
+  padding-bottom: 2vw;
+  border-left: 1px solid white;
+}
+.filebtn-center{
+    display: flex;
+    justify-content: center;
+}
+.private-banner{
+    background-color: purple;
+    display: flex;
+    align-items: center;
+}
+.toggle-container{
+    padding: 1vw;
+}
+/* Button Styles */
+.filebtn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.filebtn:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}

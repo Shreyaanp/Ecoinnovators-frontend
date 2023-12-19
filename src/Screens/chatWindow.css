@@ -1,6 +1,9 @@
 .chatApp {
     text-align: center;
-    margin: 2rem;
+    background-color: #3E3E3E;
+    width: 100vw;
+    height: 100vh;
+
   }/* Color Scheme */
   :root {
     --background-color: rgb(241, 229, 229); /* Light Gray for Background */
@@ -10,7 +13,7 @@
   }
 
   .chat-window {
-    border-radius: 8px;
+    border-radius: 33px;
     min-height: 500px;
     max-height: 400px;
     overflow-y: auto;
@@ -64,17 +67,28 @@
   }
   .content {
     display: flex;
+    justify-content: space-evenly;
+    width: 95vw;
+    margin-left: 2vw;
+    padding-top: 5vw;
   }
 
   .left-panel {
     width: 60%;
+   background-color: rgba(9, 9, 9, 0.56);
+   border-radius: 33px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid red;
+   padding: 1vw;
   }
 
   .right-panel {
-    width: 30%;
-    /* Add any additional styling you want for the right panel here */
+    width: 35%;
+    border-radius: 33px;
   }
-  /* CSS */
+ 
   .action-button {
     background-color: var(--button-color); /* Apply Button Color */
     color: #fff;
@@ -93,9 +107,7 @@
   }
 
   .input-container {
-
     align-items: center;
-    margin-top: 10px;
   }
   /* Input Box Styles */
 .message-input {
@@ -145,4 +157,26 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+.fileUpload-window, .view-dataset{
+  color: #B3B3B3;
+  width: 29.925vw;
+  height: 25vh;
+  padding:3vw;
+  padding-bottom: 2vw;
+}
+.fileUpload-window:hover, .view-dataset:hover{
+  background-color: gray;
+  color: white;
+}
+.fileUpload-window{
+  border-left: 1px solid white;
+}
+.fileupload-icon{
+  font-size: 8vw;
+  color: white;
+}
+.dataset-icon{
+  font-size: 8vw;
+  color: white;
 }
