@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import './ChatWindow.css';
+import './chatWindow.css';
 
 // Point this URL to your FastAPI backend
 const backendUrl = 'http://localhost:8000';
