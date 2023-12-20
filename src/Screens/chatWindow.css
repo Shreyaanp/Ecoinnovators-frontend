@@ -66,26 +66,24 @@
     min-height: 14px;
   }
   .content {
-    display: flex;
-    justify-content: space-evenly;
-    width: 95vw;
+    width: 90vw;
     margin-left: 2vw;
     padding-top: 5vw;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
   }
 
   .left-panel {
-    width: 60%;
+    width: 40vw;
    background-color: rgba(9, 9, 9, 0.56);
    border-radius: 33px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
    border: 1px solid red;
    padding: 1vw;
   }
 
   .right-panel {
-    width: 35%;
+    width: 35vw;
     border-radius: 33px;
   }
 
@@ -374,7 +372,7 @@
   display: flex;
   flex-direction: column;
   height: 550px;
-  width: 60%; /* Adjust width as necessary */
+  width: 50%; /* Adjust width as necessary */
 }
 
 

@@ -18,7 +18,7 @@ function LPheader1() {
     
             <div className="container">
             <div className="content_card_container">
-            <div className="content">
+            <div className="content-c">
               <b className="transformingChaosInto">
                 Transforming Chaos into Clarity with AI Powered Insights
               </b>

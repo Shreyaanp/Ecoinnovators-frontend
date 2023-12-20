@@ -35,7 +35,7 @@
   .primaryButton:hover{
     background-color: black;
   }
-  .content {
+  .content-c {
     flex-direction: column;
     gap: var(--gap-5xl);
     padding-left: 1vw; 
