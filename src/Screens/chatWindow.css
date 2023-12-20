@@ -66,8 +66,9 @@
     min-height: 14px;
   }
   .content {
-    width: 90vw;
+    width: 85vw;
     margin-left: 2vw;
+    padding: 4vw;
     padding-top: 5vw;
     border: 1px solid red;
     display: flex;
@@ -75,7 +76,7 @@
   }
 
   .left-panel {
-    width: 40vw;
+    width: 50vw;
    background-color: rgba(9, 9, 9, 0.56);
    border-radius: 33px;
    border: 1px solid red;
