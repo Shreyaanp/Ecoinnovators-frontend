@@ -11,7 +11,7 @@ function LPheader1() {
           <div className="div">
             <hr className="line"/>
             <div className="login_button">
-            <img alt="" className='sihlogo' src="/SIH_logo.png" />
+            <img alt="" className='sihlogo' src="/15.png"  />
             <p>EcoInnovators</p>
            <Link to="home" className='link'><CgProfile /></Link> 
             </div>
