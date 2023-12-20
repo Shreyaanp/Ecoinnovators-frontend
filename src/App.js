@@ -5,12 +5,14 @@ import SignupModal from './Components/SignupModal';
 import LoginModal from './Components/LoginModal';
 
 import Dashboard from './Screens/Dashboard';
+import LandingPage from './Screens/LandingPage';
 
 function App() {
   return (
   <Router>
   <Routes>
-    <Route path="/" element={<HomePage />} />
+  <Route path="/" element={<LandingPage />} />
+    <Route path="/home" element={<HomePage />} />
     <Route path="/signup" element={<SignupModal isOpen={true} onClose={() => {}} />} />
     <Route path="/login" element={<LoginModal isOpen={true} onClose={() => {}} />} />
     <Route path='/dashboard' element={<Dashboard />} />

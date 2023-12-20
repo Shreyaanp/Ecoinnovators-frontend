@@ -1,0 +1,39 @@
+.icons {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.dataFootprint {
+  position: relative;
+  font-weight: 500;
+}
+.eliminatingTheRegistration {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  display: inline-block;
+  width: 156px;
+}
+.cardInner,
+.iconsParent {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.iconsParent {
+  gap: var(--gap-5xs);
+}
+.cardInner {
+  border-radius: var(--br-5xl);
+  background-color: var(--color-linen);
+  padding: var(--padding-9xl) var(--padding-11xl);
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-200);
+  font-family: var(--font-inter);
+}

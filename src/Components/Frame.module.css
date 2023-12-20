@@ -1,0 +1,101 @@
+.image1Icon,
+.shapeIcon {
+  position: absolute;
+  top: 0;
+  left: -58px;
+  width: 1540px;
+  height: 753px;
+  object-fit: cover;
+}
+.shapeIcon {
+  top: -81px;
+  left: 963px;
+  width: 412px;
+  height: 794px;
+  opacity: 0.56;
+}
+.noRegistrationRequired {
+  margin: 0;
+}
+.noRegistrationRequiredContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 108px;
+  font-weight: 600;
+  display: inline-block;
+  width: 899px;
+}
+.userAnonymityWe {
+  position: absolute;
+  top: 243px;
+  left: 0;
+  font-size: var(--font-size-5xl);
+  display: inline-block;
+  width: 671px;
+}
+.guestLogin {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+}
+.primaryButton {
+  position: absolute;
+  top: 394px;
+  left: 0;
+  border-radius: var(--br-21xl);
+  background-color: var(--color-lightgray);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) var(--padding-21xl);
+  font-size: var(--font-size-xl);
+  color: var(--color-dimgray);
+}
+.text {
+  position: absolute;
+  top: 209px;
+  left: 64px;
+  width: 899px;
+  height: 460px;
+}
+.fontCircleIcon {
+  top: 32px;
+  left: 712px;
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+}
+.card,
+.fontCircleIcon,
+.hero {
+  position: absolute;
+}
+.hero {
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 960px;
+}
+.card {
+  top: 777px;
+  left: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.div {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 112px;
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

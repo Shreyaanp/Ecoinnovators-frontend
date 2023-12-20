@@ -1,0 +1,174 @@
+.transformingChaosInto {
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 66px;
+    display: inline-block;
+    width: 601px;
+  }
+  .ourCommitmentTo {
+    position: relative;
+    font-size: 24px;
+    line-height: 32px;
+    display: inline-block;
+    width: 609px;
+  }
+  .contactUs {
+    position: relative;
+    line-height: 18px;
+    font-weight: 500;
+  }
+  .content,
+  .primaryButton {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .primaryButton {
+    border-radius: var(--br-21xl);
+    background-color: var(--color-darkslategray);
+    overflow: hidden;
+    flex-direction: row;
+    padding: var(--padding-5xl) 56px;
+    font-size: var(--font-size-3xl);
+    color: var(--color-white);
+  }
+  .primaryButton:hover{
+    background-color: black;
+  }
+  .content {
+    flex-direction: column;
+    gap: var(--gap-5xl);
+    padding-left: 1vw; 
+  }
+  .millions {
+    position: relative;
+  }
+  .millionsParent {
+    border-radius: var(--br-5xl);
+    background-color: var(--color-lightgray);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-5xl) var(--padding-9xl) var(--padding-5xl)
+      var(--padding-5xl);
+    gap: var(--gap-5xs);
+  }
+  .indiasAnnualCoal {
+    position: relative;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    width: 221px;
+  }
+  .frameParent,
+  .parent {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .parent {
+    border-radius: var(--br-5xl);
+    background-color: var(--color-whitesmoke);
+    flex-direction: column;
+    padding: var(--padding-5xl) var(--padding-9xl) var(--padding-5xl)
+      var(--padding-5xl);
+    gap: var(--gap-5xs);
+  }
+  .frameParent {
+    flex-direction: row;
+    gap: var(--gap-13xl);
+  }
+  .ourApproachTo {
+    position: relative;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    width: 307px;
+  }
+  .learnMoreParent {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+  }
+  .unsplashmr1cidduglcIcon {
+    position: relative;
+    width: 188px;
+    height: 113px;
+    object-fit: cover;
+  }
+  .cards,
+  .frameGroup {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frameGroup {
+    border-radius: var(--br-5xl);
+    background-color: var(--color-whitesmoke);
+    flex-shrink: 0;
+    flex-direction: row;
+    padding: var(--padding-base) var(--padding-5xl);
+    gap: 38px;
+  }
+  .cards {
+    flex-direction: column;
+    gap: var(--gap-13xl);
+    font-size: var(--font-size-5xl);
+    padding: 3vw; 
+  }
+  .heroImageIcon {
+    width: 50vw;
+    height: 110vh;
+    object-fit: cover;
+  }
+  .div {
+    background-color: var(--color-white);
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 28vw;
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 56px;
+    color: var(--color-darkslategray);
+    font-family: var(--font-lato);
+    overflow: hidden;
+  }
+  .line{
+    width: 95vw;
+  }
+  .login_button{
+    width: 90vw;
+    height: 5vh;
+    padding-bottom: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container{
+    display: flex;
+  }
+  .content_card_container{
+    width: 50vw;
+  }
+  .link{
+    color: black;
+  }
+  .link:hover{
+    color:gray
+  }
+  .sihlogo{
+    width: 15vw;
+    height: 30vh;
+
+  }
