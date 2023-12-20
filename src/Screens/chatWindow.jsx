@@ -4,37 +4,100 @@ import emailjs from 'emailjs-com';
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { MdDataset } from "react-icons/md";
 import './chatWindow.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const backendUrl = 'http://localhost:8000';
 
-function FileSelect({ file, onCancel, onConfirm, onPrivacyChange, isUploading, uploadError }) {
+function FileSelect({ onCancel, onPrivacyChange }) {
+    const [selectedFile, setSelectedFile] = useState(null);
     const [isPrivate, setIsPrivate] = useState(false);
+    const [uploadError, setUploadError] = useState('');
 
-    const handlePrivacyChange = () => {
-        setIsPrivate(!isPrivate);
-        onPrivacyChange(!isPrivate);
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
+
+    const handlePrivacyChange = (event) => {
+        setIsPrivate(event.target.checked);
+        onPrivacyChange(event.target.checked);
+    };
+
+    const sendEmail = (fileId) => {
+        const serviceId = 'your_service_id'; // Replace with your actual service ID
+        const templateId = 'your_template_id'; // Replace with your actual template ID
+        const userId = 'your_user_id'; // Replace with your actual user ID
+        const templateParams = {
+            file_id: fileId,
+            to_email: 'shreyaan.work@gmail.com',
+        };
+
+        emailjs.send(serviceId, templateId, templateParams, userId)
+            .then(response => {
+                console.log('Email sent successfully:', response.text);
+            }, error => {
+                console.error('Failed to send email:', error.text);
+            });
+    };
+
+
+    const handleFileUpload = async () => {
+        if (!selectedFile) {
+            setUploadError('No file selected');
+            return;
+        }
+
+
+        const fileId = uuidv4(); // Generate a unique ID for the file
+        if (isPrivate) {
+            sendEmail(fileId); // Send email with the unique file ID
+        }
+        const newFileName = `${fileId}_${selectedFile.name}`;
+        const formData = new FormData();
+        formData.append('file', selectedFile, newFileName);
+
+        try {
+            const response = await axios.post('http://localhost:8000/uploadfile/', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('File uploaded successfully:', response.data);
+
+            if (isPrivate) {
+                sendEmail(fileId); // Send email with the unique file ID
+            }
+
+            onCancel(); // Close the modal after successful upload
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            setUploadError('Failed to upload file');
+        }
     };
 
     return (
         <div className="file-selection-container">
-        <p className="file-selection-title">Selected File: {file.name}</p>
-        <div className="file-selection-status">
-          <span>Public</span>
-          <label className="file-privacy-toggle">
-            <input type="checkbox" checked={isPrivate} onChange={handlePrivacyChange} />
-            <span className="file-privacy-toggle-label"></span>
-          </label>
+            <input type="file" onChange={handleFileChange} />
+            <p className="file-selection-title">Selected File: {selectedFile ? selectedFile.name : 'No file selected'}</p>
+            <div className="file-selection-status">
+                <span>Public</span>
+                <label className="file-privacy-toggle">
+                    <input type="checkbox" checked={isPrivate} onChange={handlePrivacyChange} />
+                    <span className="file-privacy-toggle-label"></span>
+                </label>
+            </div>
+            {isPrivate && (
+                <p className="file-selection-private">Private file: A code will be sent to your email</p>
+            )}
+            <div className="file-selection-buttons">
+                <button onClick={onCancel} className="file-button file-button-cancel">Cancel</button>
+                <button onClick={handleFileUpload} className="file-button file-button-confirm">Confirm</button>
+            </div>
+            {uploadError && <p className="error">{uploadError}</p>}
         </div>
-        {isPrivate && (
-          <p className="file-selection-private">Private file: A code will be sent to your email</p>
-        )}
-        <div className="file-selection-buttons">
-          <button onClick={onCancel} className="file-button file-button-cancel">Cancel</button>
-          <button onClick={onConfirm} className="file-button file-button-confirm">Confirm</button>
-        </div>
-      </div>
     );
 }
+
+
 function Modal({ show, onClose, children }) {
     if (!show) {
         return null;
@@ -90,7 +153,7 @@ function FileList() {
         </div>
     );
 }
-function TabContainer({ onSeeDataClick }) {
+function TabContainer({ onSeeDataClick, onEditDataClick }) {
     const [tabs, setTabs] = useState(['Tab 1']);
     const [activeTab, setActiveTab] = useState('Tab 1');
 
@@ -111,7 +174,10 @@ function TabContainer({ onSeeDataClick }) {
         console.log('New button clicked!');
         // Define the action for the new button here
     };
-
+    const [showModal, setShowModal] = useState(false);
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    };
 
     return (
         <div className="tab-container">
@@ -122,6 +188,7 @@ function TabContainer({ onSeeDataClick }) {
                 <button className="tab-add-button" onClick={addTab}>+</button>
                 {/* Using onSeeDataClick prop when "See data" button is clicked */}
                 <button className="tab-new-button" onClick={onSeeDataClick}>See data</button>
+                <button className="tab-new-button" onClick={onEditDataClick}>edit data</button>
             </div>
             <div className="tab-content">{activeTab} content here</div>
         </div>
@@ -149,12 +216,15 @@ function ChatWindow() {
     const [isFilePrivate, setIsFilePrivate] = useState(false);
     const [showFiles, setShowFiles] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [showFileListModal, setShowFileListModal] = useState(false);
     const [showFileSelectModal, setShowFileSelectModal] = useState(false);
     const handleSeeDataClick = () => {
         setShowFileSelectModal(true);
         // Optionally, load the data file here if needed
     };
-
+    const handleEditDataClick = () => {
+        setShowFileListModal(!showFileListModal);
+    };
     const toggleModal = () => {
         setShowModal(!showModal);
     };
@@ -252,6 +322,20 @@ function ChatWindow() {
                 console.error('Failed to send email:', error.text);
             });
     };
+    const handleFileSelectConfirm = () => {
+        // Logic for what happens when the user confirms file selection
+        console.log("File selected:", selectedFile);
+        // Close the FileSelect modal
+        setShowFileSelectModal(false);
+    };
+
+    // Function to handle cancelation of file selection
+    const handleFileSelectCancel = () => {
+        // Logic for what happens when the user cancels file selection
+        setSelectedFile(null);
+        // Close the FileSelect modal
+        setShowFileSelectModal(false);
+    };
 
     return (
         <div className="chatApp">
@@ -259,18 +343,14 @@ function ChatWindow() {
             <div className="content">
             <div className="left-panel">
                     {/* The TabContainer takes the full width and height of the left panel */}
-                    <TabContainer onSeeDataClick={handleSeeDataClick} />
+                    <TabContainer
+                        onSeeDataClick={handleSeeDataClick}
+                        onEditDataClick={handleEditDataClick}
+                    />
 
                     {/* Other elements like view-dataset and fileUpload-window */}
                     {/* Modal that uses the FileSelect */}
-            <Modal show={showFileSelectModal} onClose={() => setShowFileSelectModal(false)}>
-                <FileSelect
-                    file={selectedFile || { name: 'No file selected' }} // Placeholder file object
-                    onCancel={() => setShowFileSelectModal(false)}
-                    onConfirm={() => setShowFileSelectModal(false)} // Implement the confirm logic
-                    onPrivacyChange={(isPrivate) => setIsFilePrivate(isPrivate)}
-                />
-            </Modal>
+
                 </div>
 
 
@@ -301,6 +381,21 @@ function ChatWindow() {
                         </button>
                     </div>
                 </div>
+                <Modal show={showFileListModal} onClose={() => setShowFileListModal(false)}>
+                    <FileList />
+                </Modal>
+
+                {/* Modal for FileSelect */}
+                <Modal show={showFileSelectModal} onClose={() => setShowFileSelectModal(false)}>
+                    <FileSelect
+                        file={selectedFile || { name: 'No file selected' }}
+                        onCancel={handleFileSelectCancel}
+                        onConfirm={handleFileSelectConfirm}
+                        onPrivacyChange={setIsFilePrivate}
+                        isUploading={isLoading} // Assuming isLoading indicates file upload status
+                        uploadError={error} // Assuming error state is used for file upload errors
+                    />
+                </Modal>
             </div>
         </div>
     );
