@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { MdOutlineEmail } from "react-icons/md";
 import axios from 'axios'; // Import axios
+import emailjs from 'emailjs-com'; // Import emailjs-com
 
 import './FileSelect.css';
 
-function FileSelect({ file, onCancel, onConfirm }) {
+function FileSelect({ file, onCancel, onConfirm}) {
     const [isPrivate, setIsPrivate] = useState(false);
     const [privateCode, setPrivateCode] = useState('');
 
@@ -41,28 +42,24 @@ function FileSelect({ file, onCancel, onConfirm }) {
 
     // Function to send an email
     const sendEmail = () => {
-        // Replace with your Elastic Email API key
-        const apiKey = 'YOUR_API_KEY';
+        // Emailjs service ID, template ID, and user ID
+        const serviceId = 'service_hqj0p4v';
+        const templateId = 'template_mkqzflm';
+        const userId = '3GYLqmYhByOweZLSo';
 
-        // Prepare email data
-        const emailData = {
-            apiKey,
-            subject: 'Your Private Code',
-            from: 'no-reply@example.com', // Your no-reply email address
-            to: 'recipient@example.com', // Recipient's email address (can be dynamic)
-            bodyText: `Your private code is: ${privateCode}`, // Include the private code here
+        // Template parameters
+        const templateParams = {
+            to_email: 'shreyaan.work@gmail.com', // Recipient email
+            private_code: privateCode, // Private code
+            // ... any other parameters your template needs
         };
 
-        // Send the email using the Elastic Email API
-        axios.post('https://api.elasticemail.com/v2/email/send', emailData)
+        emailjs.send(serviceId, templateId, templateParams, userId)
             .then(response => {
-                console.log('Email sent successfully:', response.data);
-                // Handle success, e.g., show a success message to the user
+                console.log('Email sent successfully:', response.text);
                 onConfirm(); // Call the onConfirm callback after sending the email
-            })
-            .catch(error => {
-                console.error('Error sending email:', error);
-                // Handle error, e.g., show an error message to the user
+            }, error => {
+                console.error('Failed to send email:', error.text);
             });
     };
 
