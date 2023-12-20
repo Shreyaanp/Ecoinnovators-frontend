@@ -1,3 +1,10 @@
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
 .image2Icon {
   position: absolute;
   top: 123px;

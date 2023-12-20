@@ -2,6 +2,14 @@ import ExplorationBeyondLimitsCardCon from "./ExplorationBeyondLimitsCardCon";
 import styles from "./Component.module.css";
 
 const ThirdComponent = () => {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This provides a smooth scrolling effect
+    });
+  }
+
+
   return (
     <section className={styles.section} id="gridthird">
       <div className={styles.image}>
@@ -24,7 +32,7 @@ const ThirdComponent = () => {
           </p>
         </div>
         <div className={styles.primaryButton}>
-          <div className={styles.exploreNow}>Explore Now</div>
+         <a href="#" onClick={scrollToTop}><div className={styles.exploreNow}>Explore Now</div></a>
         </div>
       </div>
       <div className={styles.footerFrame} />
