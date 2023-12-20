@@ -1,0 +1,119 @@
+.image2Icon {
+  position: absolute;
+  top: 123px;
+  left: -576px;
+  width: 1437px;
+  height: 613px;
+  object-fit: cover;
+}
+.b,
+.moreDataAs {
+  position: relative;
+  display: inline-block;
+}
+.b {
+  line-height: 94px;
+  width: 163px;
+  height: 70px;
+  flex-shrink: 0;
+}
+.moreDataAs {
+  font-size: var(--font-size-base);
+  font-family: var(--font-space-mono);
+  width: 206px;
+}
+.number {
+  position: absolute;
+  top: 217px;
+  left: 561px;
+  border-radius: var(--br-5xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-base);
+  gap: 6px;
+}
+.child,
+.image {
+  position: absolute;
+  top: -123px;
+  left: 577px;
+  width: 801px;
+  height: 796px;
+}
+.child {
+  top: 200.2px;
+  left: -113px;
+  border-radius: 50%;
+  background-color: #f9e165;
+  width: 172.2px;
+  height: 172.2px;
+}
+.unveilingInsightsForging {
+  position: relative;
+  line-height: 92px;
+  font-weight: 800;
+  font-family: var(--font-bitter);
+  display: inline-block;
+  width: 678px;
+}
+.weAreAt {
+  margin: 0;
+}
+.weAreAtContainer {
+  position: relative;
+  font-size: var(--font-size-3xl);
+  display: inline-block;
+  width: 978px;
+}
+.exploreNow {
+  position: relative;
+  line-height: 18px;
+}
+.content,
+.primaryButton {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.primaryButton {
+  border-radius: var(--br-21xl);
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: row;
+  padding: var(--padding-5xl) var(--padding-21xl);
+  font-size: var(--font-size-xl);
+  color: var(--color-black);
+}
+.content {
+  position: absolute;
+  top: 157px;
+  left: 63px;
+  flex-direction: column;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: 72px;
+  font-family: var(--font-space-mono);
+}
+.footerFrame {
+  position: absolute;
+  top: 611px;
+  left: 0;
+  background-color: var(--color-white);
+  width: 1438px;
+  height: 411px;
+}
+.section {
+  position: relative;
+  background-color: #dadada;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  mix-blend-mode: linear-burn;
+  text-align: center;
+  font-size: 48px;
+  color: var(--color-white);
+  font-family: var(--font-bitter);
+}

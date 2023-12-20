@@ -1,0 +1,87 @@
+.icons {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.explorationBeyond {
+  margin: 0;
+  color: black;
+}
+.explorationBeyondLimitsContainer {
+  position: relative;
+  color: black;
+}
+.ourUnwaveringCommitment {
+  position: relative;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  width: 266px;
+  color: black;
+}
+.iconsContainer,
+.iconsParent {
+  border-radius: var(--br-base);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0)
+  );
+  box-shadow: -8px -8px 24px rgba(0, 0, 0, 0.25) inset,
+    4px 4px 24px rgba(255, 255, 255, 0.2) inset;
+  border: 1px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) var(--padding-3xl);
+  gap: var(--gap-base);
+}
+.iconsContainer {
+  font-size: var(--font-size-lgi);
+}
+.joinUsOn {
+  position: relative;
+  display: inline-block;
+  width: 266px;
+}
+.card,
+.frameDiv {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameDiv {
+  border-radius: var(--br-base);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0)
+  );
+  box-shadow: -8px -8px 24px rgba(0, 0, 0, 0.25) inset,
+    4px 4px 24px rgba(255, 255, 255, 0.2) inset;
+  border: 1px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 310px;
+  flex-direction: column;
+  padding: var(--padding-5xl) var(--padding-3xl);
+  gap: var(--gap-base);
+  font-size: var(--font-size-base);
+  color: black;
+}
+.card {
+  position: absolute;
+  top: 697px;
+  left: 66px;
+  border: 1px solid var(--color-gray-300);
+  flex-direction: row;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-darkslategray-100);
+  font-family: var(--font-space-mono);
+}

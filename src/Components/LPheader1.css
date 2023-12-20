@@ -38,7 +38,7 @@
   .content-c {
     flex-direction: column;
     gap: var(--gap-5xl);
-    padding-left: 1vw; 
+    padding-left: 3vw; 
   }
   .millions {
     position: relative;
@@ -121,7 +121,7 @@
     padding: 3vw; 
   }
   .heroImageIcon {
-    width: 50vw;
+    width: 55vw;
     height: 110vh;
     object-fit: cover;
   }
@@ -129,7 +129,7 @@
     background-color: var(--color-white);
     width: 100vw;
     height: 100vh;
-    padding-bottom: 28vw;
+    padding-bottom: 18vw;
   }
   .header {
     display: flex;
@@ -155,7 +155,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .container{
+  .container-homepage{
     display: flex;
   }
   .content_card_container{
@@ -170,4 +170,8 @@
   .sihlogo{
     width: 15vw;
     height: 30vh;
+  }
+  .white{
+    color:white;
+    text-decoration: none;
   }

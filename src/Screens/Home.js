@@ -4,7 +4,7 @@ import './Home.css'; // Make sure to create a HomePage.css file for styling
 import { MdArrowDropDown } from "react-icons/md";
 import SignupModal from '../Components/SignupModal';
 import LoginModal from '../Components/LoginModal';
-
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -45,7 +45,7 @@ const HomePage = () => {
                     <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
                 </div>
                 </div>
-                <p><u>continue as a guest</u></p>
+                <Link to="../dashboard" className='white'> <p><u>continue as a guest</u></p></Link>
         </div>
         </div>
         </div>

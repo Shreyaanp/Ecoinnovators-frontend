@@ -12,11 +12,10 @@ function LPheader1() {
             <hr className="line"/>
             <div className="login_button">
             <img alt="" className='sihlogo' src="/15.png"  />
-            <p>EcoInnovators</p>
            <Link to="home" className='link'><CgProfile /></Link> 
             </div>
     
-            <div className="container">
+            <div className="container-homepage">
             <div className="content_card_container">
             <div className="content-c">
               <b className="transformingChaosInto">
@@ -29,7 +28,7 @@ function LPheader1() {
                 Discover more about our approach to ensuring safety.
               </div>
               <div className="primaryButton">
-                <div className="contactUs">Get started</div>
+              <Link to="home" className='white'><div className="contactUs">Get started</div></Link>
               </div>
             </div>
             

@@ -1,5 +1,7 @@
 import DataFootprintContainer from "../Components/DataFootprintContainer";
 import styles from "./Frame.module.css";
+import { Link } from "react-router-dom";
+
 
 const Frame = () => {
   return (
@@ -20,7 +22,7 @@ const Frame = () => {
             while remaining anonymous.
           </div>
           <div className={styles.primaryButton}>
-            <div className={styles.guestLogin}>Guest Login</div>
+          <Link to="dashboard" className='white'><div className={styles.guestLogin}>Guest Login</div></Link>
           </div>
         </div>
         <img
