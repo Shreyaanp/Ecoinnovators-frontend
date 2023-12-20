@@ -93,6 +93,9 @@ a:hover{
   font-size: var(--font-size-xl);
   color: var(--color-black);
 }
+.primaryButton:hover{
+  background-color: gray;
+}
 .content {
   position: absolute;
   top: 157px;

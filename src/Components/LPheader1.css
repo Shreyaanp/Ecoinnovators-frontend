@@ -33,7 +33,7 @@
     color: var(--color-white);
   }
   .primaryButton:hover{
-    background-color: black;
+    background-color: gray;
   }
   .content-c {
     flex-direction: column;

@@ -1,6 +1,18 @@
 import styles from "./Footer.module.css";
 
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // This provides a smooth scrolling effect
+  });
+
+}
+
 const Footer = () => {
+
+  
+
+
   return (
     <section className={styles.footer} id="footer">
       <img className={styles.image3Icon} alt="" src="/image-3@2x.png" />
@@ -31,7 +43,7 @@ const Footer = () => {
         </span>
       </div>
       <div className={styles.primaryButton} />
-      <div className={styles.swipeUp}>{`swipe up `}</div>
+      <div className={styles.swipeUp} onClick={scrollToTop}>{`swipe up `}</div>
     </section>
   );
 };

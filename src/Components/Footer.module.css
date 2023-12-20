@@ -51,6 +51,7 @@
   font-weight: 500;
   color: var(--color-white);
   text-align: left;
+  text-decoration: solid;
 }
 .footer {
   position: relative;
