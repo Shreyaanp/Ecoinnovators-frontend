@@ -66,20 +66,17 @@
     min-height: 14px;
   }
   .content {
-    width: 85vw;
+    width: 95vw;
     margin-left: 2vw;
-    padding: 4vw;
     padding-top: 5vw;
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
   }
 
   .left-panel {
-    width: 50vw;
+    width: 55vw;
    background-color: rgba(9, 9, 9, 0.56);
    border-radius: 33px;
-   border: 1px solid red;
    padding: 1vw;
   }
 
@@ -249,8 +246,7 @@
 .file-selection-buttons {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-top: 12px;
+  width: 75%;
 }
 
 .file-button {
@@ -298,17 +294,16 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  color: white;
 }
 
-.modal {
-  background: white;
+.modal-fileselect {
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 5px;
   z-index: 1001;
 }
-/* Previous CSS code remains unchanged */
 
-/* Tab container styling */
 .tab-container {
   display: flex;
   flex-direction: column;
@@ -368,22 +363,7 @@
   border-radius: 15px;
 }
 
-/* Ensure the left-panel grows to contain the tabs */
-.left-panel {
-  display: flex;
-  flex-direction: column;
-  height: 550px;
-  width: 50%; /* Adjust width as necessary */
-}
 
-
-/* Additional styles to make the left-panel look more like a sidebar */
-.left-panel {
-  background-color: rgba(9, 9, 9, 0.56);
-  border-radius: 33px;
-
-  border: 1px solid red;
-}
 
 /* Rest of your CSS */
 

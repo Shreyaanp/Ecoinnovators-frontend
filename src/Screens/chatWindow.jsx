@@ -105,7 +105,7 @@ function Modal({ show, onClose, children }) {
 
     return (
         <div className="modal-backdrop">
-            <div className="modal">
+            <div className="modal-fileselect">
                 {children}
                 <button onClick={onClose}>Close</button>
             </div>
