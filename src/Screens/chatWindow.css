@@ -365,7 +365,7 @@
   padding: 10px;
   margin: 5px;
   background: #818181;
-  overflow-y: auto;
+  overflow-y: hidden;
   border-radius: 15px;
 }
 
@@ -376,6 +376,7 @@
   height: 550px;
   width: 60%; /* Adjust width as necessary */
 }
+
 
 /* Additional styles to make the left-panel look more like a sidebar */
 .left-panel {

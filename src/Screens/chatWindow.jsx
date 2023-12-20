@@ -190,7 +190,9 @@ function TabContainer({ onSeeDataClick, onEditDataClick }) {
                 <button className="tab-new-button" onClick={onSeeDataClick}>See data</button>
                 <button className="tab-new-button" onClick={onEditDataClick}>edit data</button>
             </div>
-            <div className="tab-content">{activeTab} content here</div>
+            <div className="tab-content">{activeTab}
+                <iframe src="http://127.0.0.1:8050/" width="100%" height="100%" frameborder="0" style={{border:0}} allowfullscreen></iframe>
+            </div>
         </div>
     );
   }
